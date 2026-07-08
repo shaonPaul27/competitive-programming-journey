@@ -6,7 +6,7 @@
 * Difficulty : 1100
 * Approach   : Pigenhole Theorem. check for the worst case.
 * Time       : N/A
-* Space      : O(1)
+* Space      : O(N)
 --------------------------------
 * Solver     : Shaon Paul Shanto
 * Time       : 6-7-2026

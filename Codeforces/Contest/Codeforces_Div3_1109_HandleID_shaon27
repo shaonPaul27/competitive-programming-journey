@@ -1,0 +1,79 @@
+Author: shaon27
+Contest : Div3
+Contest Link: https://codeforces.com/contest/2244
+------------------------------------------------------------------------
+Problem A: Iskander and Drawings
+Sol:
+#include <bits/stdc++.h>
+#define MaxThree(a,b,c) max(a,max(b,c)) //finding max between 3 numbers
+#define MinThree(a,b,c) min(a,min(b,c)) //finding min between 3 numbers
+#define debug(x) cout<<#x<<": "<<x<<endl
+#define DEBUG(x) cout<<#x<<": "<<x<<endl
+#define ll long long
+#define LL long long
+using namespace std;
+void solve(){
+    int n; cin>>n;
+    string s = "#*##*##";
+    cin>>s;
+
+    int cnt = 0, mx = -1;
+    for(int i=0; i<s.size(); i++){
+        if(s[i] == '#')cnt++;
+        else{
+            mx = max(mx, cnt);
+            cnt = 0;
+        }
+    }
+    mx = max(mx, cnt);
+//    debug(mx);
+    if(mx%2 == 0)cout<<mx/2;
+    else cout<<(mx/2)+1;
+}
+int main(){
+    ll testCase = 1;
+    cin>>testCase;
+    for(ll test = 1; test<= testCase; test++){
+        solve();
+        cout<<"\n";
+    }
+    return 0;
+}
+------------------------------------------------------------------
+Problem B: Nikita and Books
+Sol: 
+#include <bits/stdc++.h>
+#define MaxThree(a,b,c) max(a,max(b,c)) //finding max between 3 numbers
+#define MinThree(a,b,c) min(a,min(b,c)) //finding min between 3 numbers
+#define debug(x) cout<<#x<<": "<<x<<endl
+#define DEBUG(x) cout<<#x<<": "<<x<<endl
+#define ll long long
+#define LL long long
+using namespace std;
+void solve(){
+    ll n; cin>>n;
+    ll arr[n];
+    for(ll i=0; i<n; i++) cin>>arr[i];
+    ll extra = 0, j = 1;
+    for(ll i=0; i<n; i++, j++){
+        if(arr[i] > j) extra = extra + arr[i] - j;
+        else if(arr[i] < j){
+            ll need = j - arr[i];
+            if(need > extra){
+                cout<<"NO";
+                return;
+            }
+            else extra = extra - need;
+        }
+    }
+    cout<<"YES";
+}
+int main(){
+    ll testCase = 1;
+    cin>>testCase;
+    for(ll test = 1; test<= testCase; test++){
+        solve();
+        cout<<"\n";
+    }
+    return 0;
+}
